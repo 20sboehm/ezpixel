@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #111;
+    user-select: none;
+}
+
+canvas {
+    border: 1px solid black;
+    background-image: url("../images/canvasBG.PNG");
+}
+
+.canvas-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    text-align: center;
+    margin-top: 15vh;
+    color: white;
+}
+
+.sidenav {
+    height: 100%;
+    width: 9.5rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: rgb(30, 30, 30);
+}
+
+.tools {
+    position: absolute;
+    height: 20rem;
+    width: inherit;
+}
+
+.tools > h4 {
+    text-align: center;
+    color: white;
+    margin: 1rem 0 1rem 0;
+}
+
+.tools > button {
+    color: white;
+    background: rgb(60, 60, 60);   
+    border: none;
+    width: 4rem;
+    height: 4rem;
+    float: left;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tools > button:hover {
+    background: rgb(80, 80, 80);
+}
+
+.down {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+}
+
+.down:hover {
+    background-color: rgb(16, 165, 16);
+}
