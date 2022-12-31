@@ -11,13 +11,28 @@
     <h1 class="title">EZPixel</h1>
     <button id="download" class="down" download="image.png" button type="button" onClick="DownloadCanvasAsImage()">Save as PNG</button></a>
     <div class="canvas-container">
-        <canvas id="canvas" width="512" height="512"></canvas>
+        <canvas id="canvasBG" class="canvas-bg" width="512" height="512"></canvas>
+        <canvas id="canvas" class="canvas" width="512" height="512"></canvas>
     </div>
     <div class="sidenav">
         <div class="tools">
             <h4>Tools</h4>
             <button id="penBtn">Pen</button>
             <button id="eraserBtn">Eraser</button>
+        </div>
+        <div class="settings">
+            <h4>Settings</h4>
+            <select id="spriteSizeSelect">
+                <option value="4">4x4</option>
+                <option value="8">8x8</option>
+                <option value="16">16x16</option>
+                <option value="32">32x32</option>
+                <option value="64">64x64</option>
+            </select>
+            <button id="spriteSizeBtn">Set Sprite Size</button>
+            <br><br><br><br><br>
+            <input type="color" id="colorSelect">
+            <button id="setColor">Set Color</button>
         </div>
     </div>
     <script src="canvas.js"></script>

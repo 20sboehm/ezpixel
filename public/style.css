@@ -8,16 +8,20 @@ body {
     user-select: none;
 }
 
-canvas {
-    border: 1px solid black;
-    background-image: url("../images/canvasBG.PNG");
+p {
+    color: white;
 }
 
-.canvas-container {
+canvas {
+    border: 1px solid black;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.canvas-bg {
+    background-image: url("../images/canvasBG.PNG");
 }
 
 .title {
@@ -36,8 +40,8 @@ canvas {
 }
 
 .tools {
-    position: absolute;
-    height: 20rem;
+    position: flex;
+    height: 10rem;
     width: inherit;
 }
 
@@ -60,6 +64,39 @@ canvas {
 
 .tools > button:hover {
     background: rgb(80, 80, 80);
+}
+
+.tools > button {
+    background: rgb(100, 100, 100);
+}
+
+.settings {
+    position: flex;
+    height: 10rem;
+    width: inherit;
+}
+
+.settings > select, button, input {
+    margin-left: 1.5rem;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 32px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+.settings > h4 {
+    text-align: center;
+    color: white;
+    margin: 1rem 0 1rem 0;
 }
 
 .down {
