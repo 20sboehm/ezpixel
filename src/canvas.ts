@@ -37,12 +37,12 @@ window.addEventListener('mousemove', function(event)
     mouseY = event.y - rect.y;
 })
 
-document.body.onmousedown = function() 
+document.onmousedown = function() 
 { 
     mouseDown = true;
 }
 
-document.body.onmouseup = function() 
+document.onmouseup = function() 
 {
     mouseDown = false;
 }
@@ -52,10 +52,6 @@ window.onresize = function(event)
 {
     rect = canvas.getBoundingClientRect();
 }
-
-window.addEventListener('blur', function (event) {
-    mouseDown = false;
-});
 
 penBtn.addEventListener('click', function() 
 {
@@ -144,6 +140,7 @@ function drawSprite()
 // Input pixel data
 function handleDrawInput() 
 {
+    console.log(mouseDown);
     if (mouseDown && mouseInBounds())
     {
         //console.log('X: ' + mouseX + ' | Y: ' + mouseY);
