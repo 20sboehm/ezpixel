@@ -140,10 +140,8 @@ function drawSprite()
 // Input pixel data
 function handleDrawInput() 
 {
-    console.log(mouseDown);
     if (mouseDown && mouseInBounds())
     {
-        //console.log('X: ' + mouseX + ' | Y: ' + mouseY);
         let pixelX = Math.floor((mouseX) / scaleFactor);
         let pixelY = Math.floor((mouseY) / scaleFactor);
         if (mouseInBounds()) {
