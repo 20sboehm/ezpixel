@@ -31,19 +31,16 @@ window.addEventListener('mousemove', function (event) {
     mouseX = event.x - rect.x;
     mouseY = event.y - rect.y;
 });
-document.body.onmousedown = function () {
+document.onmousedown = function () {
     mouseDown = true;
 };
-document.body.onmouseup = function () {
+document.onmouseup = function () {
     mouseDown = false;
 };
 // Keep track of where the canvas is releative to the browser window to make sure the coordinate math stays accurate
 window.onresize = function (event) {
     rect = canvas.getBoundingClientRect();
 };
-window.addEventListener('blur', function (event) {
-    mouseDown = false;
-});
 penBtn.addEventListener('click', function () {
     currentTool = ToolType.Pen;
 });
@@ -108,6 +105,7 @@ function drawSprite() {
 }
 // Input pixel data
 function handleDrawInput() {
+    console.log(mouseDown);
     if (mouseDown && mouseInBounds()) {
         //console.log('X: ' + mouseX + ' | Y: ' + mouseY);
         let pixelX = Math.floor((mouseX) / scaleFactor);
