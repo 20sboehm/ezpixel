@@ -3,8 +3,6 @@ let canvasBG = document.getElementById('canvasBG');
 let penBtn = document.getElementById('penBtn');
 let eraserBtn = document.getElementById('eraserBtn');
 let colorSelect = document.getElementById('colorSelect');
-let setColorBtn = document.getElementById('setColor');
-let selectSpriteSizeBtn = document.getElementById('spriteSizeBtn');
 let spriteSizeSelect = document.getElementById('spriteSizeSelect');
 
 const ToolType = {
@@ -55,7 +53,7 @@ eraserBtn.addEventListener('click', function() {
     currentTool = ToolType.ERASER;
 })
 
-selectSpriteSizeBtn.addEventListener('click', function() {
+spriteSizeSelect.addEventListener('change', function() {
     painter.scale(1/scaleFactor, 1/scaleFactor); // "Unscale" the canvas before rescaling it to its new scaling in the setupCanvas() method
     painterBG.scale(1/scaleFactor, 1/scaleFactor);
     spriteSize = parseInt(spriteSizeSelect.value);
@@ -66,7 +64,7 @@ selectSpriteSizeBtn.addEventListener('click', function() {
     setupCanvas();
 })
 
-setColorBtn.addEventListener('click', function() {
+colorSelect.addEventListener('change', function() {
     penColor = colorSelect.value;
 })
 

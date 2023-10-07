@@ -8,33 +8,40 @@
     <title>EZPixel</title>
 </head>
 <body>
-    <h1 class="title">EZPixel</h1>
-    <button id="download" class="down" download="image.png" button type="button" onClick="DownloadCanvasAsImage()">Save as PNG</button></a>
-    <div class="canvas-container">
-        <canvas id="canvasBG" class="canvas-bg" width="512" height="512"></canvas>
-        <canvas id="canvas" class="canvas" width="512" height="512"></canvas>
-    </div>
-    <div class="sidenav">
-        <div class="tools">
-            <h4>Tools</h4>
-            <button id="penBtn">Pen</button>
-            <button id="eraserBtn">Eraser</button>
+    <header></header>
+    <main>
+        <section class="tools-section">
+            <h2>Tools</h2>
+            <menu class="tool-menu">
+                <button id="penBtn">Pen</button>
+                <button id="eraserBtn">Eraser</button>
+            </menu>
+        </section>
+        <div class="canvas-container">
+            <canvas id="canvasBG" class="canvas-bg" width="512" height="512"></canvas>
+            <canvas id="canvas" class="canvas" width="512" height="512"></canvas>
         </div>
-        <div class="settings">
-            <h4>Settings</h4>
-            <select id="spriteSizeSelect">
-                <option value="4">4x4</option>
-                <option value="8">8x8</option>
-                <option value="16">16x16</option>
-                <option value="32">32x32</option>
-                <option value="64">64x64</option>
-            </select>
-            <button id="spriteSizeBtn">Set Sprite Size</button>
-            <br><br><br><br><br>
-            <input type="color" id="colorSelect">
-            <button id="setColor">Set Color</button>
-        </div>
-    </div>
+        <section class="settings-section">
+            <h2>Settings</h2>
+            <div class="settings">
+                <div>
+                    <p>Size</p>
+                    <select id="spriteSizeSelect">
+                        <option value="4">4x4</option>
+                        <option value="8">8x8</option>
+                        <option value="16" selected>16x16</option>
+                        <option value="32">32x32</option>
+                        <option value="64">64x64</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Color</p>
+                    <input type="color" id="colorSelect">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
     <script src="js/canvas.js"></script>
 </body>
 </html>

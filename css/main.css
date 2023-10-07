@@ -1,15 +1,75 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
 }
 
 body {
-    margin: 0;
-    background-color: #111;
-    user-select: none;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-p {
+header {
+    background-color: #333333;
+    height: 3rem;
+    border-bottom: 1px solid black;
+}
+
+main {
+    background-color: #141518;
+    display: flex;
+    flex-grow: 1;
+}
+
+section > h2 {
     color: white;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+    width: 80%;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.25rem;
+}
+
+/* -------------------- TOOLS SECTION -------------------- */
+
+.tools-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333333;
+    width: 10rem;
+}
+
+.tool-menu {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tool-menu > button {
+    color: white;
+    background: #707070;
+    border: none;
+    width: 4rem;
+    height: 4rem;
+}
+
+.tool-menu > button:hover {
+    background: #606060;
+}
+
+.tool-menu > button:active {
+    background: #808080;
+}
+
+/* -------------------- CANVAS -------------------- */
+
+.canvas-container {
+    flex-grow: 1;
+    position: relative;
 }
 
 canvas {
@@ -24,67 +84,47 @@ canvas {
     background-image: url("../images/canvasBG.PNG");
 }
 
-.title {
-    text-align: center;
-    margin-top: 15vh;
-    color: white;
-}
+/* -------------------- SETTINGS SECTION -------------------- */
 
-.sidenav {
-    height: 100%;
-    width: 9.5rem;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    background-color: rgb(30, 30, 30);
-}
-
-.tools {
-    position: flex;
-    height: 10rem;
-    width: inherit;
-}
-
-.tools > h4 {
-    text-align: center;
-    color: white;
-    margin: 1rem 0 1rem 0;
-}
-
-.tools > button {
-    color: white;
-    background: rgb(60, 60, 60);   
-    border: none;
-    width: 4rem;
-    height: 4rem;
-    float: left;
-    margin-left: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.tools > button:hover {
-    background: rgb(80, 80, 80);
-}
-
-.tools > button {
-    background: rgb(100, 100, 100);
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333333;
+    width: 10rem;
 }
 
 .settings {
-    position: flex;
     height: 10rem;
-    width: inherit;
+    width: 80%;
 }
 
-.settings > select, button, input {
-    margin-left: 1.5rem;
+.settings p {
+    margin-bottom: 0.25rem;
+}
+
+.settings > div {
+    margin-bottom: 1rem;
+}
+
+#spriteSizeSelect {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#spriteSizeSelect:focus {
+    outline: none;
 }
 
 input[type="color"] {
 	border: none;
+    border: 1px solid white;
 	width: 32px;
 	height: 32px;
-}
+} 
 input[type="color"]::-webkit-color-swatch-wrapper {
 	padding: 0;
 }
@@ -92,20 +132,10 @@ input[type="color"]::-webkit-color-swatch {
 	border: none;
 }
 
-.settings > h4 {
-    text-align: center;
-    color: white;
-    margin: 1rem 0 1rem 0;
-}
+/* -------------------- FOOTER -------------------- */
 
-.down {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: green;
-}
-
-.down:hover {
-    background-color: rgb(16, 165, 16);
+footer {
+    height: 10rem;
+    background-color: #333333;
+    border-top: 1px solid black;
 }
