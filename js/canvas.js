@@ -1,5 +1,6 @@
 let canvas = document.getElementById('canvas');
 let canvasBG = document.getElementById('canvasBG');
+let canvasFG = document.getElementById('canvasFG');
 let colorSelect = document.getElementById('colorSelect');
 let spriteSizeSelect = document.getElementById('spriteSizeSelect');
 let toolButtons = document.querySelectorAll(".tool-button");
@@ -14,9 +15,10 @@ const ToolType = {
 let rect = canvas.getBoundingClientRect();
 let painter = canvas.getContext('2d');
 let painterBG = canvasBG.getContext('2d');
+let painterFG = canvasFG.getContext('2d')
 let mouseX = 0;
 let mouseY = 0;
-let inputCheckInterval = setInterval(handleDrawInput, 5);
+let inputCheckInterval = setInterval(step, 5);
 let pixelData = [[]];
 let mouseDown = false;
 let penColor = 'rgba(0, 0, 0, 1)';
@@ -66,10 +68,10 @@ toolButtons.forEach((tool) => {
 spriteSizeSelect.addEventListener('change', function() {
     painter.scale(1/scaleFactor, 1/scaleFactor); // "Unscale" the canvas before rescaling it to its new scaling in the setupCanvas() method
     painterBG.scale(1/scaleFactor, 1/scaleFactor);
+    painterFG.scale(1/scaleFactor, 1/scaleFactor);
     spriteSize = parseInt(spriteSizeSelect.value);
     scaleFactor = canvas.width / spriteSize;
     painter.clearRect(0, 0, spriteSize, spriteSize);
-    painterBG.clearRect(0, 0, spriteSize, spriteSize);
     pixelData = [[]];
     setupCanvas();
 })
@@ -85,6 +87,7 @@ colorSelect.addEventListener('change', function() {
 function setupCanvas() {
     painter.scale(scaleFactor, scaleFactor);
     painterBG.scale(scaleFactor, scaleFactor);
+    painterFG.scale(scaleFactor, scaleFactor)
 
     // Initialize the canvas with opacity-0 color values
     for (let i = 0; i < spriteSize; i++) 
@@ -132,21 +135,35 @@ function drawSprite() {
     }
 }
 
-// Input pixel data
+// Code to run continuously
+function step() {
+    handleDrawInput()
+    drawHighlight()
+}
+
 function handleDrawInput() {
     if (mouseDown && mouseInBounds())
     {
         let pixelX = Math.floor((mouseX) / scaleFactor);
         let pixelY = Math.floor((mouseY) / scaleFactor);
-        if (mouseInBounds()) {
-            if (currentTool == ToolType.PEN) {
-                pixelData[pixelX][pixelY] = penColor;
-            }
-            else if (currentTool == ToolType.ERASER) {
-                pixelData[pixelX][pixelY] = 'rgba(0, 0, 0, 0)';
-            }
+        if (currentTool == ToolType.PEN) {
+            pixelData[pixelX][pixelY] = penColor;
+        }
+        else if (currentTool == ToolType.ERASER) {
+            pixelData[pixelX][pixelY] = 'rgba(0, 0, 0, 0)';
         }
         drawSprite();
+    }
+}
+
+// Highlight the pixel the mouse is hovering over
+function drawHighlight() {
+    painterFG.clearRect(0, 0, spriteSize, spriteSize);
+    if (mouseInBounds() && !mouseDown) {
+        let pixelX = Math.floor((mouseX) / scaleFactor);
+        let pixelY = Math.floor((mouseY) / scaleFactor);
+        painterFG.fillStyle = 'rgba(80, 80, 80, 0.4)';
+            painterFG.fillRect(pixelX, pixelY, 1, 1);
     }
 }
 
