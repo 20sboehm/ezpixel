@@ -1,9 +1,10 @@
 let canvas = document.getElementById('canvas');
 let canvasBG = document.getElementById('canvasBG');
-let penBtn = document.getElementById('penBtn');
-let eraserBtn = document.getElementById('eraserBtn');
 let colorSelect = document.getElementById('colorSelect');
 let spriteSizeSelect = document.getElementById('spriteSizeSelect');
+let toolButtons = document.querySelectorAll(".tool-button");
+let penBtn = document.getElementById('penBtn');
+let eraserBtn = document.getElementById('eraserBtn');
 
 const ToolType = {
     PEN: "Pen",
@@ -45,12 +46,21 @@ window.onresize = function(event) {
     rect = canvas.getBoundingClientRect();
 }
 
-penBtn.addEventListener('click', function() {
-    currentTool = ToolType.PEN;
-})
+toolButtons.forEach((tool) => {
+    tool.addEventListener("click", () => {
+        toolButtons.forEach((btn) => {
+            btn.classList.remove("selected");
+        });
 
-eraserBtn.addEventListener('click', function() {
-    currentTool = ToolType.ERASER;
+        tool.classList.add("selected");
+
+        if (tool === penBtn) {
+            currentTool = ToolType.PEN;
+        }
+        else if (tool === eraserBtn) {
+            currentTool = ToolType.ERASER;
+        }
+    });
 })
 
 spriteSizeSelect.addEventListener('change', function() {
