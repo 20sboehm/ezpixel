@@ -35,13 +35,24 @@ window.addEventListener('mousemove', function(event) {
     mouseY = event.y - rect.y;
 })  
 
-document.onmousedown = function() { 
-    mouseDown = true;
+// Left mouse up
+document.onmousedown = function(event) { 
+    if (event.button === 0) {
+        mouseDown = true;
+    }
 }
 
-document.onmouseup = function() {
-    mouseDown = false;
+// Left mouse down
+document.onmouseup = function(event) {
+    if (event.button === 0) {
+        mouseDown = false;
+    }
 }
+
+// Catch right click from creating context menu
+document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+});
 
 // Keep track of where the canvas is releative to the browser window to make sure the coordinate math stays accurate
 window.onresize = function(event) {
