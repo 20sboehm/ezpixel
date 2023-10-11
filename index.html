@@ -11,7 +11,12 @@
     <header></header>
     <main>
         <section class="tools-section">
-            <h2>Tools</h2>
+            <div class="color-select">
+                <input type="color" id="color1" class="primary-color">
+                <input type="color" id="color2" class="secondary-color" value="#ffffff">
+                <button id="swapColors">swap</button>
+            </div>
+            <h2>TOOLS</h2>
             <menu class="tool-menu">
                 <button id="penBtn" class="tool-button selected">Pen</button>
                 <button id="eraserBtn" class="tool-button">Eraser</button>
@@ -34,10 +39,6 @@
                         <option value="32">32x32</option>
                         <option value="64">64x64</option>
                     </select>
-                </div>
-                <div>
-                    <p>Color</p>
-                    <input type="color" id="colorSelect">
                 </div>
             </div>
         </section>

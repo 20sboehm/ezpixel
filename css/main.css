@@ -25,12 +25,63 @@ main {
 }
 
 section > h2 {
+    font-size: 1rem;
     color: white;
     text-align: center;
     margin: 1rem 0 1rem 0;
     width: 80%;
     border-bottom: 1px solid grey;
     padding-bottom: 0.25rem;
+}
+
+/* -------------------- COLOR SELECT -------------------- */
+
+.color-select {
+    height: 10rem;
+    width: 100%;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.primary-color {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -80%);
+    z-index: 2;
+}
+
+.secondary-color {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -20%);
+}
+
+#swapColors {
+    background-color: #707070;
+    border: none;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+input[type="color"] {
+	border: none;
+    border: 1px solid white;
+    border-radius: 5px;
+	width: 4rem;
+	height: 4rem;
+} 
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+    border-radius: 5px;
 }
 
 /* -------------------- TOOLS SECTION -------------------- */
@@ -52,7 +103,7 @@ section > h2 {
 
 .tool-menu > button {
     color: white;
-    background: #707070;
+    background-color: #707070;
     border: none;
     width: 4rem;
     height: 4rem;
@@ -61,10 +112,6 @@ section > h2 {
 .tool-menu > button:hover {
     background: #606060;
 }
-
-/* .tool-menu > button:active {
-    background: #808080;
-} */
 
 .selected {
     outline: 2px solid white;
@@ -122,19 +169,6 @@ canvas {
 
 #spriteSizeSelect:focus {
     outline: none;
-}
-
-input[type="color"] {
-	border: none;
-    border: 1px solid white;
-	width: 32px;
-	height: 32px;
-} 
-input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-	border: none;
 }
 
 /* -------------------- FOOTER -------------------- */

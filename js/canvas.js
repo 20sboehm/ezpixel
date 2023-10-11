@@ -1,11 +1,14 @@
-let canvas = document.getElementById('canvas');
-let canvasBG = document.getElementById('canvasBG');
-let canvasFG = document.getElementById('canvasFG');
-let colorSelect = document.getElementById('colorSelect');
-let spriteSizeSelect = document.getElementById('spriteSizeSelect');
-let toolButtons = document.querySelectorAll(".tool-button");
-let penBtn = document.getElementById('penBtn');
-let eraserBtn = document.getElementById('eraserBtn');
+let canvas = document.querySelector('#canvas');
+let canvasBG = document.querySelector('#canvasBG');
+let canvasFG = document.querySelector('#canvasFG');
+let spriteSizeSelect = document.querySelector('#spriteSizeSelect');
+let penBtn = document.querySelector('#penBtn');
+let eraserBtn = document.querySelector('#eraserBtn');
+let color1 = document.querySelector('#color1');
+let color2 = document.querySelector('#color2');
+let swapColors = document.querySelector('#swapColors')
+let toolBtns = document.querySelectorAll(".tool-button");
+let swatches = document.querySelectorAll('.swatch');
 
 const ToolType = {
     PEN: "Pen",
@@ -15,7 +18,7 @@ const ToolType = {
 let rect = canvas.getBoundingClientRect();
 let painter = canvas.getContext('2d');
 let painterBG = canvasBG.getContext('2d');
-let painterFG = canvasFG.getContext('2d')
+let painterFG = canvasFG.getContext('2d');
 let mouseX = 0;
 let mouseY = 0;
 let inputCheckInterval = setInterval(step, 5);
@@ -59,9 +62,9 @@ window.onresize = function(event) {
     rect = canvas.getBoundingClientRect();
 }
 
-toolButtons.forEach((tool) => {
+toolBtns.forEach((tool) => {
     tool.addEventListener("click", () => {
-        toolButtons.forEach((btn) => {
+        toolBtns.forEach((btn) => {
             btn.classList.remove("selected");
         });
 
@@ -76,6 +79,35 @@ toolButtons.forEach((tool) => {
     });
 })
 
+color1.addEventListener('change', function() {
+    if (color1.classList.contains('primary-color')) {
+        penColor = color1.value
+    }
+})
+
+color2.addEventListener('change', function() {
+    if (color2.classList.contains('primary-color')) {
+        penColor = color2.value
+    }
+})
+
+swapColors.addEventListener('click', function() {
+    if (color1.classList.contains('primary-color')) {
+        color1.classList.remove('primary-color')
+        color1.classList.add('secondary-color')
+        color2.classList.remove('secondary-color')
+        color2.classList.add('primary-color')
+        penColor = color2.value
+    }
+    else if (color2.classList.contains('primary-color')) {
+        color2.classList.remove('primary-color')
+        color2.classList.add('secondary-color')
+        color1.classList.remove('secondary-color')
+        color1.classList.add('primary-color')
+        penColor = color1.value
+    }
+})
+
 spriteSizeSelect.addEventListener('change', function() {
     painter.scale(1/scaleFactor, 1/scaleFactor); // "Unscale" the canvas before rescaling it to its new scaling in the setupCanvas() method
     painterBG.scale(1/scaleFactor, 1/scaleFactor);
@@ -85,10 +117,6 @@ spriteSizeSelect.addEventListener('change', function() {
     painter.clearRect(0, 0, spriteSize, spriteSize);
     pixelData = [[]];
     setupCanvas();
-})
-
-colorSelect.addEventListener('change', function() {
-    penColor = colorSelect.value;
 })
 
 //
