@@ -83,13 +83,6 @@ primaryColorInput.addEventListener('change', function() {
 
 swapColorsButton.addEventListener('click', () => swapColors())
 
-function swapColors() {
-    temp = primaryColorInput.value
-    primaryColorInput.value = secondaryColorInput.value
-    secondaryColorInput.value = temp
-    penColor = primaryColorInput.value
-}
-
 spriteSizeSelect.addEventListener('change', function() {
     // Unscale the canvas before rescaling it to its new scaling in the setupCanvas() method
     painter.scale(1/scaleFactor, 1/scaleFactor)
@@ -190,6 +183,13 @@ function drawHighlight() {
     }
 }
 
+function mouseInBounds() {
+    if (mouseX >= 0 && mouseX <= canvas.width-1 && mouseY >= 0 && mouseY <= canvas.height-1) {
+        return true
+    }
+    return false
+}
+
 function toolButtonPress(tool) {
     toolButtons.forEach((btn) => {
         btn.classList.remove("selected")
@@ -205,11 +205,11 @@ function toolButtonPress(tool) {
     }
 }
 
-function mouseInBounds() {
-    if (mouseX >= 0 && mouseX <= canvas.width-1 && mouseY >= 0 && mouseY <= canvas.height-1) {
-        return true
-    }
-    return false
+function swapColors() {
+    temp = primaryColorInput.value
+    primaryColorInput.value = secondaryColorInput.value
+    secondaryColorInput.value = temp
+    penColor = primaryColorInput.value
 }
 
 // Save the canvas to a PNG image

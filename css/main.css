@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     color: white;
     user-select: none;
+    font-family: 'Roboto', sans-serif, Arial;
+}
+
+*:focus {
+    outline: none;
 }
 
 body {
@@ -26,12 +33,17 @@ main {
 
 section > h2 {
     font-size: 1rem;
+    font-weight: normal;
     color: white;
     text-align: center;
     margin: 1rem 0 1rem 0;
     width: 80%;
     border-bottom: 1px solid grey;
     padding-bottom: 0.25rem;
+}
+
+p {
+    font-size: 0.75rem;
 }
 
 /* -------------------- COLOR SELECT -------------------- */
@@ -42,21 +54,6 @@ section > h2 {
     margin-top: 1rem;
     position: relative;
 }
-
-/* .primary-color {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-80%, -80%);
-    z-index: 2;
-}
-
-.secondary-color {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-20%, -20%);
-} */
 
 #primaryColor {
     position: absolute;
@@ -74,14 +71,25 @@ section > h2 {
 }
 
 #swapColors {
-    background-color: #707070;
-    border: none;
+    background-color: #606060;
+    border: 1px solid black;
+    border-radius: 5px;
     color: white;
-    width: 2rem;
-    height: 2rem;
+    fill: #606060;
+    width: 1.75rem;
+    height: 1.75rem;
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: 15%;
+    right: 15%;
+}
+
+#swapColors:hover {
+    background-color: #707070;
+}
+
+.swap-icon {
+    width: 1rem;
+    height: 1rem;
 }
 
 input[type="color"] {
@@ -116,17 +124,18 @@ input[type="color"]::-webkit-color-swatch {
     flex-wrap: wrap;
 }
 
-.tool-menu > button {
+.tool-button {
     color: white;
-    background-color: #707070;
+    background-color: #606060;
     border: none;
+    border-radius: 5px;
     width: 4rem;
     height: 4rem;
     position: relative;
 }
 
 .tool-menu > button:hover {
-    background: #606060;
+    background-color: #707070;
 }
 
 .hotkey-overlay {
@@ -192,7 +201,7 @@ canvas {
     color: white;
     border: none;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 #spriteSizeSelect:focus {

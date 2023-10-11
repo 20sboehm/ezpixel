@@ -12,14 +12,14 @@
     <main>
         <section class="tools-section">
             <div class="color-select">
-                <input type="color" id="primaryColor">
-                <input type="color" id="secondaryColor" value="#ffffff">
-                <button id="swapColors" data-hotkey="x">swap<span class="hotkey-overlay">X</span></button>
+                <input type="color" id="primaryColor" tabindex="-1">
+                <input type="color" id="secondaryColor" tabindex="-1" value="#ffffff">
+                <button id="swapColors" data-hotkey="x" tabindex="-1"><img src="images/swap.png" alt="Two arrows indicating a swap action." class="swap-icon" title="Swap Colors (X)"></button>
             </div>
             <h2>TOOLS</h2>
             <menu class="tool-menu">
-                <button id="penBtn" class="tool-button selected" data-hotkey="d">Pen<span class="hotkey-overlay">D</span></button>
-                <button id="eraserBtn" class="tool-button" data-hotkey="e">Eraser<span class="hotkey-overlay">E</span></button>
+                <button id="penBtn" class="tool-button selected" data-hotkey="d" title="Pen Tool (D)" tabindex="-1">PEN<span class="hotkey-overlay">D</span></button>
+                <button id="eraserBtn" class="tool-button" data-hotkey="e" title="Eraser Tool (E)" tabindex="-1">ERASER<span class="hotkey-overlay">E</span></button>
             </menu>
         </section>
         <div class="canvas-container">
@@ -28,10 +28,10 @@
             <canvas id="canvasFG" class="canvas-fg" width="512" height="512"></canvas>
         </div>
         <section class="settings-section">
-            <h2>Settings</h2>
+            <h2>SETTINGS</h2>
             <div class="settings">
                 <div>
-                    <p>Size</p>
+                    <p>SIZE</p>
                     <select id="spriteSizeSelect">
                         <option value="4">4x4</option>
                         <option value="8">8x8</option>
