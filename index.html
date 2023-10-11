@@ -12,14 +12,14 @@
     <main>
         <section class="tools-section">
             <div class="color-select">
-                <input type="color" id="color1" class="primary-color">
-                <input type="color" id="color2" class="secondary-color" value="#ffffff">
-                <button id="swapColors">swap</button>
+                <input type="color" id="primaryColor">
+                <input type="color" id="secondaryColor" value="#ffffff">
+                <button id="swapColors" data-hotkey="x">swap<span class="hotkey-overlay">X</span></button>
             </div>
             <h2>TOOLS</h2>
             <menu class="tool-menu">
-                <button id="penBtn" class="tool-button selected">Pen</button>
-                <button id="eraserBtn" class="tool-button">Eraser</button>
+                <button id="penBtn" class="tool-button selected" data-hotkey="d">Pen<span class="hotkey-overlay">D</span></button>
+                <button id="eraserBtn" class="tool-button" data-hotkey="e">Eraser<span class="hotkey-overlay">E</span></button>
             </menu>
         </section>
         <div class="canvas-container">

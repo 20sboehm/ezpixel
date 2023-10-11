@@ -43,7 +43,7 @@ section > h2 {
     position: relative;
 }
 
-.primary-color {
+/* .primary-color {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -52,6 +52,21 @@ section > h2 {
 }
 
 .secondary-color {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -20%);
+} */
+
+#primaryColor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -80%);
+    z-index: 2;
+}
+
+#secondaryColor {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -107,10 +122,23 @@ input[type="color"]::-webkit-color-swatch {
     border: none;
     width: 4rem;
     height: 4rem;
+    position: relative;
 }
 
 .tool-menu > button:hover {
     background: #606060;
+}
+
+.hotkey-overlay {
+    position: absolute;
+    text-align: center;
+    text-justify: center;
+    background-color: rgb(0, 0, 0, 0.4);
+    border-radius: 5px;
+    height: 1rem;
+    width: 1rem;
+    top: 2px;
+    right: 2px;
 }
 
 .selected {
